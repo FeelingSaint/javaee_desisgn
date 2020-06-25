@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <!-- 开启静态方法调用 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+    <!-- 设置开发者模式 -->
+    <constant name="struts.devMode" value="true"></constant>
+    <!-- 限制文件上传的大小 (默认为2兆)-->
+    <constant name="struts.multipart.maxSize" value="5242880"></constant>
+    <!-- 配置全局消息资源包，解决英文问题 -->
+    <constant name="struts.custom.i18n.resources" value="fileupload_message"></constant>
+
+
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="login" class="actioin.UserAction" method="login">
+
+            <result name="success">/login_success/welcome.jsp</result>
+            <result name="*">/failed.jsp</result>
+        </action>
+
+        <action name="register" class="actioin.RegisterAction" method="register">
+
+            <result name="success">/register_success.jsp</result>
+            <result name="用户已存在">/failed.jsp</result>
+        </action>
+        <action name="saveScore" class="actioin.saveScore" method="saveScore">
+
+            <result name="FanYiXia">/fan1xia/FanYiXia.jsp</result>
+            <result name="tetris">/tetris/tetris.jsp</result>
+            <result name="DaFeiJi">/DaFeiJi/js/DaFeiJi.jsp</result>
+
+        </action>
+        <action name="updateInfo" class="actioin.updateAction" method="updateAction">
+
+            <result name="success">/info.jsp</result>
+<!--            <result name="tetris">/tetris/tetris.jsp</result>-->
+
+        </action>
+    </package>
+
+</struts>
